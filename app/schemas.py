@@ -1,3 +1,4 @@
+from typing import Optional
 from pydantic import BaseModel,EmailStr
 from datetime import datetime
 
@@ -13,15 +14,6 @@ class PostCreate(PostBase):
 class PostUpdate(PostBase):
     pass
 
-# Tackle the response
-# Sending specific fields to the users
-class Post(PostBase):
-    created_at: datetime
-    #necessary Convert a sqlalchemy ointo a pydentic model
-    class Config:
-        orm_mode = True
-
-
 class UserCreate(BaseModel):
     email: EmailStr
     password: str
@@ -33,3 +25,29 @@ class UserOut(BaseModel):
 
     class Config:
         orm_mode = True
+
+class UserLogin(BaseModel):
+    email: EmailStr
+    password: str
+# Tackle the response
+# Sending specific fields to the users
+class Post(PostBase):
+    id: int
+    created_at: datetime
+    owner_id: int
+    owner: UserOut
+    #necessary Convert a sqlalchemy ointo a pydentic model
+
+    class Config:
+        orm_mode = True
+
+# Schema for the Access Token
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+class TokenData(BaseModel):
+    id: Optional[str] = None
+
+    
+
