@@ -1,4 +1,6 @@
 from typing import Text
+from sqlalchemy.orm import relationship
+from sqlalchemy.sql.schema import ForeignKey
 from sqlalchemy.sql.sqltypes import TIMESTAMP
 from .database import Base
 from sqlalchemy import Column, Integer, String, Boolean
@@ -13,9 +15,12 @@ class Post(Base):
     id = Column(Integer, primary_key = True, nullable = False)
     title = Column(String, nullable = False)
     content = Column(String, nullable = False)
-    # If you want the default to reflect into the database you have to use server_default=<string>
     published = Column(Boolean, server_default = 'TRUE', nullable = False )
+    # If you want the default to reflect into the database you have to use server_default=<string>
     created_at = Column(TIMESTAMP(timezone = True), nullable = False, server_default = text('now()'))
+    owner_id = Column(Integer, ForeignKey("users.id",ondelete = "CASCADE"), nullable = False)
+
+    owner = relationship("User")
 
 #Creating User functionality
 class User(Base):
