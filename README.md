@@ -89,7 +89,7 @@ _Below is an example of how you can instruct your audience on installing and set
    ```sh
    pip install <package>
    ```
-3. Start the project by typing in your terminal `config.js`
+3. Start the project by activating the virtual environment and after that typing:
    ```sh
    uvicorn app.main:app
    ```
