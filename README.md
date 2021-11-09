@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="Images/logo-teal.png" alt="Logo" width="200" height="80">
   </a>
 
   <h3 align="center">Creating my own API</h3>
@@ -104,9 +104,8 @@ _Below is an example of how you can instruct your audience on installing and set
 In order to send a request, the client should be authentificated so that he can send any CRUD operations to the server. The authentification process is done by
 sending the username and the password to the server, and if they are valid a token that expires after 30 mins is send back to the client.
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
+    <img src="Images/create_user.png" alt="create_user" >
+    <img src="Images/login_user.png" alt="login_user">
 </div>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
